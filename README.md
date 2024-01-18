@@ -34,8 +34,8 @@ yarn add @nufi/dapp-client-cardano@https://github.com/nufi-official/nufi-dapp-sd
 ### Initialize core SDK
 
 ```typescript
-import { initNufiDappSdk } from "@nufi/dapp-client-core";
-const { hideWidget } = initNufiDappSdk();
+import {initNufiDappSdk} from '@nufi/dapp-client-core'
+const {hideWidget} = initNufiDappSdk()
 ```
 
 Ideally call `initNufiDappSdk` during the first load.
@@ -51,11 +51,11 @@ globally accessible variable based on your setup.
 ### Selecting SSO provider
 
 ```typescript
-import { initNufiDappCardanoSdk } from "@nufi/dapp-client-cardano";
+import {initNufiDappCardanoSdk} from '@nufi/dapp-client-cardano'
 
 // Should be called before accessing `window.cardano.nufiSSO`
-initNufiDappCardanoSdk("sso");
-const api = await window.cardano.nufiSSO.enable();
+initNufiDappCardanoSdk('sso')
+const api = await window.cardano.nufiSSO.enable()
 ```
 
 When not supporting other NuFi widget providers like Metamask Snap, you can also
