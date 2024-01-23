@@ -12,7 +12,8 @@
     "build-storybook": "storybook build",
     "prettier:check": "prettier --check .",
     "prettier": "prettier --write .",
-    "test": "yarn prettier:check && yarn lint"
+    "test:tsc": "yarn tsc --noEmit",
+    "test": "yarn prettier:check && yarn lint && yarn test:tsc"
   },
   "peerDependencies": {
     "react": "^18.2.0",
