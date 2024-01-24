@@ -1,0 +1,46 @@
+{
+  "name": "sso-button-react",
+  "version": "0.0.0",
+  "author": "NuFi",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --p ./tsconfig-build.json && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prettier:check": "prettier --check .",
+    "prettier": "prettier --write .",
+    "test:tsc": "yarn tsc --noEmit",
+    "test": "yarn prettier:check && yarn lint && yarn test:tsc"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.9",
+    "@storybook/addon-interactions": "^7.6.9",
+    "@storybook/addon-links": "^7.6.9",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.9",
+    "@storybook/react": "^7.6.9",
+    "@storybook/react-vite": "^7.6.9",
+    "@storybook/test": "^7.6.9",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-storybook": "^0.6.15",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.6.9",
+    "vite": "^5.0.11",
+    "vite-plugin-dts": "^3.7.1"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ]
+}
