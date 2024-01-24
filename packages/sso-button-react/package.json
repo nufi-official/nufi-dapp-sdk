@@ -1,5 +1,5 @@
 {
-  "name": "sso-button-react",
+  "name": "@nufi/sso-button-react",
   "version": "0.0.0",
   "author": "NuFi",
   "license": "MIT",
@@ -38,9 +38,13 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.6.9",
     "vite": "^5.0.11",
-    "vite-plugin-dts": "^3.7.1"
+    "vite-plugin-dts": "^3.7.1",
+    "vite-plugin-svgr": "^4.2.0"
   },
   "sideEffects": [
     "**/*.css"
-  ]
+  ],
+  "dependencies": {
+    "classnames": "^2.5.1"
+  }
 }
