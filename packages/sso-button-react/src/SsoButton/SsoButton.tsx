@@ -28,6 +28,7 @@ export type SsoButtonProps = {
     button?: string
   }
   logoutTooltip?: string
+  disableAction?: boolean
 } & Omit<React.HTMLAttributes<HTMLElement>, 'onClick' | 'className'>
 
 export function SsoButton({
@@ -41,6 +42,7 @@ export function SsoButton({
   userInfo,
   logoutTooltip = 'Log out',
   isLoading,
+  disableAction,
   ...rest
 }: SsoButtonProps) {
   const textContent =
@@ -48,6 +50,7 @@ export function SsoButton({
   const commonBaseElementProps = {
     theme,
     classes,
+    disabled: disableAction,
     isLoading,
     ...rest,
   }
@@ -110,6 +113,7 @@ export function SsoButton({
                         {content}
                       </BaseElement>
                     }
+                    disabled={commonBaseElementProps.disabled}
                     className={getBaseElementClassName({
                       isButton: true,
                       theme,
@@ -198,6 +202,7 @@ const getBaseElementClassName = ({
 type BaseElementProps = {
   isError?: boolean
   isLoading?: boolean
+  disabled?: boolean
 } & React.HTMLAttributes<HTMLElement> &
   Omit<GetBaseElementClassNameArgs, 'isButton'>
 
@@ -210,6 +215,7 @@ function BaseElement({
   className,
   children,
   isLoading,
+  disabled,
   ...rest
 }: BaseElementProps) {
   const isButton = !!onClick
@@ -238,6 +244,7 @@ function BaseElement({
           children
         )
       }
+      {...(isButton && {disabled})}
     />
   )
 }
@@ -247,6 +254,7 @@ type LogoutButtonProps = {
   title: string
   className?: string
   onClick: () => void
+  disabled?: boolean
 }
 
 function LogoutButton({leftItem, className, ...rest}: LogoutButtonProps) {

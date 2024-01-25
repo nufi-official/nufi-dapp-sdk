@@ -56,6 +56,12 @@
   background: rgba(255, 0, 0, 0.1);
 }
 
+.button:disabled:hover,
+.button[disabled]:hover {
+  cursor: wait;
+  background: transparent;
+}
+
 .button:hover {
   transition-duration: 0.1s;
 }

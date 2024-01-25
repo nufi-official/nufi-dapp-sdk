@@ -45,6 +45,14 @@ export const LoadingState: Story = {
   },
 }
 
+export const DisabledLoadingState: Story = {
+  args: {
+    state: 'logged_out' as const,
+    isLoading: true,
+    disableAction: true,
+  },
+}
+
 export const LoggedInWithProviderIcon: Story = {
   args: {
     state: 'logged_in' as const,
