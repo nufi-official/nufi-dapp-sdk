@@ -7,15 +7,15 @@ import {supportedIcons} from './types'
 const getDefaultTextContentByState = (
   showDefaultIconsWhenLoggedOut?: boolean,
 ): Record<LoginState, string> => ({
-  loading: 'Connecting...',
   error: 'Try again',
   logged_in: 'Connected',
   logged_out: showDefaultIconsWhenLoggedOut ? 'Sign in with' : 'Sign in',
 })
 
 export type SsoButtonProps = {
-  onLogout: () => void
-  onLogin: () => void
+  onLogout?: () => void
+  onLogin?: () => void
+  isLoading?: boolean
   state: LoginState
   showDefaultIconsWhenLoggedOut?: boolean
   label?: string
@@ -28,6 +28,7 @@ export type SsoButtonProps = {
     button?: string
   }
   logoutTooltip?: string
+  disableAction?: boolean
 } & Omit<React.HTMLAttributes<HTMLElement>, 'onClick' | 'className'>
 
 export function SsoButton({
@@ -40,36 +41,19 @@ export function SsoButton({
   label,
   userInfo,
   logoutTooltip = 'Log out',
+  isLoading,
+  disableAction,
   ...rest
 }: SsoButtonProps) {
   const textContent =
     label || getDefaultTextContentByState(showDefaultIconsWhenLoggedOut)[state]
-
-  const commonProps = ({
-    isButton,
-    noBaseRightRadius,
-  }: {
-    isButton: boolean
-    noBaseRightRadius?: boolean
-  }) => ({
+  const commonBaseElementProps = {
+    theme,
+    classes,
+    disabled: disableAction,
+    isLoading,
     ...rest,
-    // data-error-state is used as a CSS selector
-    'data-error-state': state === 'error',
-    className: cn(
-      styles.baseReset,
-      styles.base,
-      classes?.base,
-      isButton && classes?.button,
-      noBaseRightRadius && styles.noRightRadius,
-      {
-        [styles.darkMode]: theme === 'dark',
-        [styles.lightMode]: theme === 'light',
-        [styles.button]: isButton,
-        [styles.buttonDarkMode]: isButton && theme === 'dark',
-        [styles.buttonLightMode]: isButton && theme === 'light',
-      },
-    ),
-  })
+  }
 
   return (
     <>
@@ -79,7 +63,7 @@ export function SsoButton({
             switch (state) {
               case 'logged_out': {
                 return (
-                  <button {...commonProps({isButton: true})} onClick={onLogin}>
+                  <BaseElement {...commonBaseElementProps} onClick={onLogin}>
                     {showDefaultIconsWhenLoggedOut ? (
                       <ContentWrapper
                         leftItem={textContent}
@@ -97,68 +81,69 @@ export function SsoButton({
                     ) : (
                       textContent
                     )}
-                  </button>
+                  </BaseElement>
                 )
               }
               case 'logged_in': {
                 const existsProviderIcon =
                   userInfo?.provider &&
                   supportedIcons.includes(userInfo.provider)
-                return (
-                  <div className={styles.logoutWrapper}>
-                    <div
-                      {...commonProps({
-                        isButton: false,
-                        noBaseRightRadius: true,
-                      })}
-                    >
-                      {userInfo?.provider && existsProviderIcon ? (
-                        <ContentWrapper
-                          rightItem={textContent}
-                          leftItem={
-                            <Icon
-                              type={userInfo.provider}
-                              className={cn(styles.icon)}
-                            />
-                          }
-                        />
-                      ) : (
-                        textContent
-                      )}
-                    </div>
-                    <button
-                      title={logoutTooltip}
-                      className={cn(
-                        commonProps({isButton: true}).className,
-                        styles.logoutButton,
-                      )}
-                      onClick={onLogout}
-                    >
-                      <Icon type="logout" className={cn(styles.icon)} />
-                    </button>
-                  </div>
-                )
-              }
-              case 'loading': {
-                return (
-                  <div {...commonProps({isButton: false})}>
+
+                const content =
+                  userInfo?.provider && existsProviderIcon ? (
                     <ContentWrapper
                       rightItem={textContent}
-                      leftItem={<span className={styles.loader} />}
+                      leftItem={
+                        <Icon
+                          type={userInfo.provider}
+                          className={cn(styles.icon)}
+                        />
+                      }
                     />
-                  </div>
+                  ) : (
+                    textContent
+                  )
+                return onLogout ? (
+                  <LogoutButton
+                    leftItem={
+                      <BaseElement
+                        {...{theme, classes, isLoading}}
+                        noBaseRightRadius
+                      >
+                        {content}
+                      </BaseElement>
+                    }
+                    disabled={commonBaseElementProps.disabled}
+                    className={getBaseElementClassName({
+                      isButton: true,
+                      theme,
+                      classes,
+                    })}
+                    title={logoutTooltip}
+                    onClick={onLogout}
+                  />
+                ) : (
+                  <BaseElement {...commonBaseElementProps}>
+                    {content}
+                  </BaseElement>
                 )
               }
               case 'error': {
                 return (
-                  <button {...commonProps({isButton: true})} onClick={onLogin}>
+                  <BaseElement
+                    onClick={onLogin}
+                    {...commonBaseElementProps}
+                    isError
+                  >
                     <ContentWrapper
                       rightItem={textContent}
                       leftItem={
-                        <Icon type="refresh" className={cn(styles.icon)} />
+                        onLogin && !isLoading ? (
+                          <Icon type="refresh" className={cn(styles.icon)} />
+                        ) : null
                       }
                     />
-                  </button>
+                  </BaseElement>
                 )
               }
             }
@@ -183,5 +168,102 @@ function ContentWrapper({leftItem, rightItem}: ContentWrapperProps) {
       {renderItem(leftItem)}
       {renderItem(rightItem)}
     </span>
+  )
+}
+
+type GetBaseElementClassNameArgs = {
+  isButton: boolean
+  noBaseRightRadius?: boolean
+  classes: SsoButtonProps['classes']
+  theme: Theme
+}
+
+const getBaseElementClassName = ({
+  isButton,
+  noBaseRightRadius,
+  classes,
+  theme,
+}: GetBaseElementClassNameArgs) =>
+  cn(
+    styles.baseReset,
+    styles.base,
+    classes?.base,
+    isButton && classes?.button,
+    noBaseRightRadius && styles.noRightRadius,
+    {
+      [styles.darkMode]: theme === 'dark',
+      [styles.lightMode]: theme === 'light',
+      [styles.button]: isButton,
+      [styles.buttonDarkMode]: isButton && theme === 'dark',
+      [styles.buttonLightMode]: isButton && theme === 'light',
+    },
+  )
+
+type BaseElementProps = {
+  isError?: boolean
+  isLoading?: boolean
+  disabled?: boolean
+} & React.HTMLAttributes<HTMLElement> &
+  Omit<GetBaseElementClassNameArgs, 'isButton'>
+
+function BaseElement({
+  theme,
+  onClick,
+  noBaseRightRadius,
+  classes,
+  isError,
+  className,
+  children,
+  isLoading,
+  disabled,
+  ...rest
+}: BaseElementProps) {
+  const isButton = !!onClick
+
+  const commonProps = {
+    // data-error-state is used as a CSS selector
+    'data-error-state': isError,
+    onClick,
+    className: cn(
+      getBaseElementClassName({theme, noBaseRightRadius, isButton, classes}),
+      className,
+    ),
+  }
+  const Element = isButton ? 'button' : 'div'
+  return (
+    <Element
+      {...commonProps}
+      {...rest}
+      children={
+        isLoading ? (
+          <ContentWrapper
+            rightItem={children}
+            leftItem={<span className={styles.loader} />}
+          />
+        ) : (
+          children
+        )
+      }
+      {...(isButton && {disabled})}
+    />
+  )
+}
+
+type LogoutButtonProps = {
+  leftItem: React.ReactNode
+  title: string
+  className?: string
+  onClick: () => void
+  disabled?: boolean
+}
+
+function LogoutButton({leftItem, className, ...rest}: LogoutButtonProps) {
+  return (
+    <div className={styles.logoutWrapper}>
+      {leftItem}
+      <button className={cn(className, styles.logoutButton)} {...rest}>
+        <Icon type="logout" className={cn(styles.icon)} />
+      </button>
+    </div>
   )
 }

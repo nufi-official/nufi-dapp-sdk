@@ -28,6 +28,31 @@ export const Basic: Story = {
   },
 }
 
+export const BasicWithoutLoginMethods: Story = {
+  args: {
+    state: 'logged_out' as const,
+    // these are optional props
+    // but needs to be explicitly set as 'undefined' for storybook
+    onLogout: undefined,
+    onLogin: undefined,
+  },
+}
+
+export const LoadingState: Story = {
+  args: {
+    state: 'logged_out' as const,
+    isLoading: true,
+  },
+}
+
+export const DisabledLoadingState: Story = {
+  args: {
+    state: 'logged_out' as const,
+    isLoading: true,
+    disableAction: true,
+  },
+}
+
 export const LoggedInWithProviderIcon: Story = {
   args: {
     state: 'logged_in' as const,
