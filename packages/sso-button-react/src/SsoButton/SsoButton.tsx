@@ -50,7 +50,7 @@ export function SsoButton({
   const commonBaseElementProps = {
     theme,
     classes,
-    disabled: disableAction,
+    disabled: disableAction ?? isLoading,
     isLoading,
     ...rest,
   }
