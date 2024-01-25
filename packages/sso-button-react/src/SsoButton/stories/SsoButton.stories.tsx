@@ -45,11 +45,11 @@ export const LoadingState: Story = {
   },
 }
 
-export const DisabledLoadingState: Story = {
+export const AllowActionsInLoadingState: Story = {
   args: {
     state: 'logged_out' as const,
     isLoading: true,
-    disableAction: true,
+    disableAction: false,
   },
 }
 
