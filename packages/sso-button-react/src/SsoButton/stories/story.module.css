@@ -15,7 +15,7 @@
   border-color: blue;
 }
 
-.customColor[data-error-state='true']:hover {
+.customButtonColor[data-error-state='true']:hover {
   background-color: rgba(0, 0, 255, 0.3);
 }
 
