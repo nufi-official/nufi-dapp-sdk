@@ -5,6 +5,7 @@
 Example dapp with the current version of SDK is deployed [here](https://sdk-example.nu.fi).
 
 Snippets of example integration can be found [here](https://github.com/nufi-official/adaplays.xyz/commit/641466c4e8b534f1461692cac6987396b77b5c7c).
+Note that the versions in `package.json` need to be updated to the latest available.
 
 ## Install packages
 
@@ -191,22 +192,8 @@ For users with NuFi extension installed, there are no specific actions required.
 Simply access `window.cardano.nufi` from anywhere as it is not controlled by
 the NuFi Widget SDK.
 
-## Troubleshooting
-
-### Black and non-responsive Widget
-We noticed that accessing `window.cardano.nufiSSO` directly after calling
-`initNufiDappCardanoSdk` can lead to "frozen/black" Widget window.
-If that is the case for you, please call any asynchronous operation
-after calling `initNufiDappCardanoSdk` and before accessing `window.cardano.nufiSSO`.
-Something like this should fix the problem:
-
-```typescript
-initNufiDappCardanoSdk(nufiCoreSdk, 'sso', {provider: 'google'})
-await new Promise((resolve) => setTimeout(resolve, 100))
-const api = await window.cardano.nufiSSO.enable()
-```
-This problem should be fixed soon.
-
 ## Limitations
 - Only cardano preprod network is enabled for now.
 - The terms and conditions will be updated before going to production.
+
+## Troubleshooting
