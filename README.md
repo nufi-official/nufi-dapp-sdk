@@ -29,7 +29,7 @@ yarn add @nufi/dapp-client-cardano
 
 ```typescript
 import nufiCoreSdk from '@nufi/dapp-client-core'
-nufiCoreSdk.init('https://nufi-testnet-staging.herokuapp.com')
+nufiCoreSdk.init('https://wallet-testnet-staging.nu.fi')
 ```
 
 The `init` function has to be called before calling other functions from
