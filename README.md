@@ -36,7 +36,7 @@ nufiCoreSdk.init('https://wallet-testnet-staging.nu.fi')
 // OR
 
 // mainnet network (runs against staging version of NuFi)
-nufiCoreSdk.init('https://wallet-testnet-staging.nu.fi')
+nufiCoreSdk.init('https://wallet-staging.nu.fi')
 ```
 
 The `init` function has to be called before calling other functions from
