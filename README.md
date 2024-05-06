@@ -48,7 +48,7 @@ and will make it appear faster when being requested later on.
 If no origin is passed to `init` it defaults to `https://wallet.nu.fi`. Note that this default will
 not work as mainnet is not yet supported.
 
-For now please the origin from the above example. Note that it will you `preprod` network.
+For now please use the origin from the above example. Note that it will use `preprod` network.
 
 ### Initialize SSO login for Cardano
 
