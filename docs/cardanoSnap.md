@@ -77,6 +77,9 @@ const api = await window.cardano.nufiSnap.enable()
 The `initNufiDappCardanoSdk` will populate `window.cardano.nufiSnap` object
 which has methods corresponding to CIP-30 standard.
 
+See [multiple providers docs](./multipleProviders.md)
+to use `initNufiDappCardanoSdk` correctly, when supporting multiple providers.
+
 ### HideWidget
 
 ```typescript
