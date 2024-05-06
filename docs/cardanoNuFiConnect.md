@@ -35,6 +35,11 @@ nufiCoreSdk.init('https://wallet-testnet-staging.nu.fi')
 
 // OR
 
+// preview network (runs against staging version of NuFi)
+nufiCoreSdk.init('https://wallet-preview-staging.nu.fi')
+
+// OR
+
 // mainnet network (runs against staging version of NuFi)
 nufiCoreSdk.init('https://wallet-staging.nu.fi')
 ```
