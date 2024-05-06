@@ -4,8 +4,18 @@
 
 Example dapp with the current version of SDK is deployed [here](https://sdk-example.nu.fi).
 
-Snippets of example integration can be found [here](https://github.com/nufi-official/adaplays.xyz/commit/641466c4e8b534f1461692cac6987396b77b5c7c).
-Note that the versions in `package.json` need to be updated to the latest available.
+Example integration can be seen in https://github.com/nufi-official/adaplays.xyz
+which is a forked/updated version of playground cardano dapp.
+
+We recommend to check usage of
+`@nufi/dapp-client-core`, `@nufi/dapp-client-cardano` and `@nufi/sso-button-react` in
+[File 1](https://github.com/nufi-official/adaplays.xyz/blob/main/components/navbar.tsx) and [File 2](https://github.com/nufi-official/adaplays.xyz/blob/main/pages/_app.tsx) where
+most of the changes are contained. Alternatively just searching for the usage
+of these libraries should showcase all relevant steps in the integration.
+
+The other changes made to this repository are specific to its example dapp, so we do not recommend
+focusing on them.
+
 
 ## Install packages
 
