@@ -1,0 +1,38 @@
+name: Copy file to repository synced with Gitbook
+
+on:
+  workflow_call:
+    inputs:
+      source_file:
+        required: true
+        type: string
+      destination_folder:
+        required: true
+        type: string
+      rename:
+        type: string
+    secrets:
+      access_token:
+        required: true
+
+jobs:
+  copy_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Copy File to Another Repo
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.access_token }}
+        with:
+          source_file: ${{ inputs.source_file }}
+          rename: ${{ inputs.rename }}
+          destination_repo: 'nufi-official/nufi'
+          destination_branch: 'nufi-dapp-sdk-readme-sync-test'
+          destination_folder: ${{ inputs.destination_folder }}
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          user_name: 'github-actions[bot]'
+          commit_message: 'Sync docs changes from ${{ github.repository }}/${{ inputs.source_file }}'
