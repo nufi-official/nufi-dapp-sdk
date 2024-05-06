@@ -78,6 +78,9 @@ You can currently choose `google` and `discord` providers.
 The `initNufiDappCardanoSdk` will populate `window.cardano.nufiSSO` object
 which has methods corresponding to CIP-30 standard.
 
+See [multiple providers docs](./multipleProviders.md)
+to use `initNufiDappCardanoSdk` correctly, when supporting multiple providers.
+
 ### Listening to social login info changes
 
 You can listen to the changes of current social login info using the following:
