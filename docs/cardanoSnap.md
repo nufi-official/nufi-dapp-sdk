@@ -122,5 +122,3 @@ the NuFi Widget SDK.
 
 ## Limitations
 - The terms and conditions will be updated before going to production.
-
-## Troubleshooting
