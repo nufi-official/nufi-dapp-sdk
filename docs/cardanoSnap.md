@@ -63,6 +63,17 @@ If no origin is passed to `init` it defaults to `https://wallet.nu.fi`. Note tha
 
 For now please use the origin from the above example.
 
+### Check whether user has Metamask installed
+```typescript
+import nufiCoreSdk from '@nufi/dapp-client-core'
+
+nufiCoreSdk.getApi().isMetamaskInstalled().then((isMetamaskInstalled) => {
+  // `isMetamaskInstalled` is `true` if user has Metamask installed
+  // You can e.g. set your local state to reflect that and display
+  // login with metamask option.
+})
+```
+
 ### Initialize Snap login for Cardano
 
 ```typescript
