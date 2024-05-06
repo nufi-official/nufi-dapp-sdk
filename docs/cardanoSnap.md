@@ -7,6 +7,20 @@ Example dapp with the current version of SDK is deployed [here](https://sdk-exam
 Snippets of example integration can be found [here](https://github.com/nufi-official/adaplays.xyz/commit/641466c4e8b534f1461692cac6987396b77b5c7c).
 Note that the versions in `package.json` need to be updated to the latest available.
 
+## Install custom Metamask Flask
+*Note that the custom Metamask Flask
+has to be used due to changes in the Metamask extension itself, that were not yet published to production*.
+
+Download Metamask Flask extension from [here](https://github.com/nufi-official/metamask-extension/releases/tag/v11.10.0-flask-cip3) or click [here](https://github.com/nufi-official/metamask-extension/releases/download/v11.10.0-flask-cip3/v11.10.0-flask-cip3.zip) to download it directly.
+
+Once downloaded:
+* Extract the attached zip file
+* Use separate Chrome profile to not mess with the production Metamask extension
+* Navigate to `chrome://extensions/`
+* Press "Load unpacked"
+* Choose the "chrome" folder of the extracted zip file
+* Alternatively use "firefox" folder if using Firefox
+
 ## Install packages
 
 NPM
