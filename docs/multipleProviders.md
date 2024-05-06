@@ -5,7 +5,7 @@ more than one NuFi SDK provider (Snap / NuFiConnect) or wants
 to use NuFiConnect with more blockchains. Note that currently only
 Cardano is being supported.
 
-*The takeaway is that before accessing some provider, the last invocation of `initNufiDappCardanoSdk` had to be called with the settings matching this provider.*
+*The takeaway is that before accessing some provider, the last invocation of `initNufiDappCardanoSdk` has to be called with the settings matching this provider.*
 
 ### Example: Changing NuFi SDK providers
 To showcase the usage please consider the below example:

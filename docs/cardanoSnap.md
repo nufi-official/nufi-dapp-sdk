@@ -1,10 +1,12 @@
 # Metamask snap (Cardano wallet)
 
-# Demo
+Integrates your DApp with the `Cardano Wallet` Metamask [snap](https://metamask.io/snaps/). This means that in order to log into your DApp, it is enough for the user to have Metamask installed, removing the need for having a Cardano-specific wallet set up.
+
+## Demo
 
 Example dapp with the current version of SDK is deployed [here](https://sdk-example.nu.fi).
 
-Example integration can be seen in https://github.com/nufi-official/adaplays.xyz
+Example integration can be found in https://github.com/nufi-official/adaplays.xyz
 which is a forked/updated version of playground cardano dapp.
 
 We recommend to check usage of
