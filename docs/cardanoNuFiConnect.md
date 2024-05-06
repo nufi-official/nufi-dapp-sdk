@@ -45,10 +45,9 @@ The `init` function has to be called before calling other functions from
 Its advisable to call it as soon as possible as it will also prefetch the Widget,
 and will make it appear faster when being requested later on.
 
-If no origin is passed to `init` it defaults to `https://wallet.nu.fi`. Note that this default will
-not work as mainnet is not yet supported.
+If no origin is passed to `init` it defaults to `https://wallet.nu.fi`. Note that this default will not work until officially released.
 
-For now please use the origin from the above example. Note that it will use `preprod` network.
+For now please use the origin from the above example.
 
 ### Initialize SSO login for Cardano
 
@@ -202,7 +201,6 @@ Simply access `window.cardano.nufi` from anywhere as it is not controlled by
 the NuFi Widget SDK.
 
 ## Limitations
-- Only cardano preprod network is enabled for now.
 - The terms and conditions will be updated before going to production.
 
 ## Troubleshooting
