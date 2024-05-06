@@ -1,10 +1,12 @@
 # NuFiConnect (Cardano)
 
-# Demo
+Integrates your DApp with the NuFi web wallet injected into it is as a widget. Users can seamlessly onboard/log in into your DApp using social providers such as Google or Discord while being able to manage their wallet in the NuFi interface.
+
+## Demo
 
 Example dapp with the current version of SDK is deployed [here](https://sdk-example.nu.fi).
 
-Example integration can be seen in https://github.com/nufi-official/adaplays.xyz
+Example integration can be found in https://github.com/nufi-official/adaplays.xyz
 which is a forked/updated version of playground cardano dapp.
 
 We recommend to check usage of
