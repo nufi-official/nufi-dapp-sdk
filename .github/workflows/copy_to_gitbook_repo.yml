@@ -35,4 +35,4 @@ jobs:
           destination_folder: ${{ inputs.destination_folder }}
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
           user_name: 'github-actions[bot]'
-          commit_message: 'Sync docs changes from ${{ github.repository }}/${{ inputs.source_file }}'
+          commit_message: 'Sync docs changes from ${{ github.repository }}/${{ inputs.source_file }}, commit: ${{ github.event.head_commit.id }}'
