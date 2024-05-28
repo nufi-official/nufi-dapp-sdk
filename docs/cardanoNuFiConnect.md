@@ -37,6 +37,8 @@ yarn add @nufi/dapp-client-cardano
 
 ## Usage
 
+*Make sure that your app's Content Security Policy does not block the iframe that is injected by our SDK. For more info please check [iframe injection docs](./iframeInjection.md).*
+
 ### Initialize core SDK
 
 ```typescript
