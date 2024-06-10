@@ -22,7 +22,7 @@ focusing on them.
 *Note that the custom Metamask Flask
 has to be used due to changes in the Metamask extension itself, that were not yet published to production*.
 
-Download Metamask Flask extension from [here](https://github.com/nufi-official/metamask-extension/releases/tag/v11.10.0-flask-cip3-allow-remote-snap) or click [here](https://github.com/nufi-official/metamask-extension/releases/download/v11.10.0-flask-cip3-allow-remote-snap/v11.10.0-flask-cip3-allow-remote-snap.zip) to download it directly.
+Download Metamask Flask extension from [here](https://github.com/nufi-official/metamask-extension/releases/tag/11.15.6_as_11.18.0) or click [here](https://github.com/nufi-official/metamask-extension/releases/download/11.15.6_as_11.18.0/11.15.6_as_11.18.0.zip) to download it directly.
 
 Once downloaded:
 * Extract the attached zip file
