@@ -1,7 +1,4 @@
 # Widget options
-To customize Widget styles by your own CSS you
-can attach styles using `#nufi-widget` selector.
-
 Following is a set of options that allows
 to customize widget appearance and positioning.
 
