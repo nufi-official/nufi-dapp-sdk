@@ -81,6 +81,9 @@ If no origin is passed to `init` it defaults to `https://wallet.nu.fi`. Note tha
 
 For now please use the origin from the above example.
 
+To customize the z-index of the Widget appearance, please
+see [Widget options](./widgetOptions.md)
+
 ### Check whether user has Metamask installed
 ```typescript
 import nufiCoreSdk from '@nufi/dapp-client-core'
