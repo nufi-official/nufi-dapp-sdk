@@ -12,5 +12,6 @@ jobs:
     with:
       source_file: 'docs/sso/'
       destination_folder: 'nuficonnect-single-sign-on-sdk-for-cardano-dapps'
+      action_name: 'sso docs'
     secrets:
       access_token: ${{ secrets.API_TOKEN_GITHUB }}

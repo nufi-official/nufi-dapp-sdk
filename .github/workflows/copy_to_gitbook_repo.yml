@@ -10,6 +10,8 @@ on:
         type: string
       rename:
         type: string
+      action_name:
+        type: string
     secrets:
       access_token:
         required: true
@@ -35,7 +37,7 @@ jobs:
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
           user_name: 'github-actions[bot]'
           commit_message: |
-            Sync: ${{ github.event.head_commit.message }}
+            Sync ${{ inputs.action_name }}: ${{ github.event.head_commit.message }}
               
               Synced from ${{ github.repository }} 
               Original commit hash: ${{ github.event.head_commit.id }}

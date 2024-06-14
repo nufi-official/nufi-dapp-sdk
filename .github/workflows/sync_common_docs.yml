@@ -12,5 +12,6 @@ jobs:
     with:
       source_file: 'docs/common/'
       destination_folder: 'common'
+      action_name: 'common docs'
     secrets:
       access_token: ${{ secrets.API_TOKEN_GITHUB }}
