@@ -30,7 +30,7 @@ jobs:
           source_file: ${{ inputs.source_file }}
           rename: ${{ inputs.rename }}
           destination_repo: 'nufi-official/nufi'
-          destination_branch: 'nufi-dapp-sdk-readme-sync-test'
+          destination_branch: 'test-sdk-docs-sync'
           destination_folder: ${{ inputs.destination_folder }}
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
           user_name: 'github-actions[bot]'

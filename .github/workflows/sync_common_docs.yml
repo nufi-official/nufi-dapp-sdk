@@ -3,14 +3,14 @@ name: Sync docs with gitbook
 on:
   push:
     branches: ['github-actions-readme']
-    paths: ['docs/sso/**']
+    paths: ['docs/snap/**', 'docs/sso/**', 'docs/common/**']
 
 jobs:
-  copy_nufi_connect_docs:
-    name: Copy Cardano NuFi Connect Docs
+  copy_cardano_snap_docs:
+    name: Copy Common Docs
     uses: ./.github/workflows/copy_to_gitbook_repo.yml
     with:
-      source_file: 'docs/sso/'
-      destination_folder: 'nuficonnect-single-sign-on-sdk-for-cardano-dapps'
+      source_file: 'docs/common/'
+      destination_folder: 'common'
     secrets:
       access_token: ${{ secrets.API_TOKEN_GITHUB }}

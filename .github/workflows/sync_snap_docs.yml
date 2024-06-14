@@ -10,7 +10,7 @@ jobs:
     name: Copy Cardano Snap Docs
     uses: ./.github/workflows/copy_to_gitbook_repo.yml
     with:
-      source_file: 'docs/snap'
-      rename: 'metamask-snap-cardano-wallet-coming-soon'
+      source_file: 'docs/snap/'
+      destination_folder: 'metamask-snap-cardano-wallet'
     secrets:
       access_token: ${{ secrets.API_TOKEN_GITHUB }}
