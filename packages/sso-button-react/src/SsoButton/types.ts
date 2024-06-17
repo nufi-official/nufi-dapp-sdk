@@ -10,7 +10,6 @@ export const supportedIcons: IconProps['type'][] = [
   'google',
   'facebook',
   'discord',
-  'twitch',
 ]
 
 export type SupportedIcon = (typeof supportedIcons)[number]
