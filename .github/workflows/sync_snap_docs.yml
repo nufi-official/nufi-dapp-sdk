@@ -1,0 +1,17 @@
+name: Sync docs with gitbook
+
+on:
+  push:
+    branches: ['github-actions-readme']
+    paths: ['docs/snap/**']
+
+jobs:
+  copy_cardano_snap_docs:
+    name: Copy Cardano Snap Docs
+    uses: ./.github/workflows/copy_to_gitbook_repo.yml
+    with:
+      source_file: 'docs/snap/'
+      destination_folder: 'metamask-snap-cardano-wallet'
+      action_name: 'snap docs'
+    secrets:
+      access_token: ${{ secrets.API_TOKEN_GITHUB }}
