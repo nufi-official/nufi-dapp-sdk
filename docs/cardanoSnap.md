@@ -85,6 +85,13 @@ To customize Widget appearance (such as z-index), please
 see [Widget options](./widgetOptions.md)
 
 ### Check whether user has Metamask installed
+
+Note that the Widget handles cases when users do not have Metamask installed.
+Therefore its fine to always show some "Login with MetaMask" button on your dapp.
+
+If you nevertheless wish to detect whether the MetaMask is installed, you can do it
+via the following call:
+
 ```typescript
 import nufiCoreSdk from '@nufi/dapp-client-core'
 
