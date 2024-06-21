@@ -136,5 +136,10 @@ For users with NuFi extension installed, there are no specific actions required.
 Simply access `window.cardano.nufi` from anywhere as it is not controlled by
 the NuFi Widget SDK.
 
+## Whitelist
+
+### On-off ramp service
+If you want a service user to be able to purchase crypto inside the widget using a fiat on-ramp (powered by Moonpay), your DApp's domain needs to be whitelisted. Please [contact us](./contact.md) and specify the domains to be whitelisted.
+
 ## Limitations
 - The terms and conditions will be updated before going to production.
