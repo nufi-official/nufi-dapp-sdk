@@ -148,5 +148,8 @@ the NuFi Widget SDK.
 ### On-off ramp service
 If you want a service user to be able to purchase crypto inside the widget using a fiat on-ramp (powered by Moonpay), your DApp's domain needs to be whitelisted. Please [contact us](./contact.md) and specify the domains to be whitelisted.
 
+Once whitelisted you will need to use [this extension](https://chromewebstore.google.com/detail/always-disable-content-se/ffelghdomoehpceihalcnbmnodohkibj) for local testing, or ensure
+that your dapp is locally accessible via `http://localhost` or `https://localhost` (i.e. no port number in the URL).
+
 ## Limitations
 - The terms and conditions will be updated before going to production.
