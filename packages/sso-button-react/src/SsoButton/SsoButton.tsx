@@ -71,6 +71,7 @@ export function SsoButton({
                           <span className={styles.iconsWrapper}>
                             {supportedIcons.map((iconType) => (
                               <Icon
+                                key={iconType}
                                 type={iconType}
                                 className={cn(styles.icon)}
                               />
