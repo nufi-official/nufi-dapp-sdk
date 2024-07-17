@@ -1,10 +1,10 @@
 # Widget options
+
 Following is a set of options that allows
 to customize widget appearance and positioning.
 
 To specify the options, use the second parameter
-of the `nufiCoreSdk.init` function when initializing
-the widget.
+of the `nufiCoreSdk.init` function when initializing the widget.
 
 ## Z-index
 
@@ -14,6 +14,6 @@ z-index that can potentially overlap with our widget, you can set the z-index of
 ```typescript
 nufiCoreSdk.init(nufiDomain, {
   // supply any value you wish, the default is 0
-  zIndex: 99999
+  zIndex: 99999,
 })
 ```
