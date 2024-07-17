@@ -1,0 +1,44 @@
+name: Copy files to repository synced with Gitbook
+
+on:
+  workflow_call:
+    inputs:
+      source_folder:
+        required: true
+        type: string
+      destination_folder:
+        type: string
+      rename:
+        type: string
+      action_name:
+        type: string
+    secrets:
+      gitbook_repo_access_token:
+        required: true
+
+jobs:
+  copy_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Copy File to Another Repo
+        uses: nufi-official/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.gitbook_repo_access_token }}
+        with:
+          source_file: ${{ inputs.source_folder }}
+          rename: ${{ inputs.rename }}
+          destination_repo: 'nufi-official/nufi'
+          destination_branch: 'gitbook'
+          destination_folder: ${{ inputs.destination_folder }}
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          user_name: 'github-actions[bot]'
+          commit_message: |
+            ${{ github.event.head_commit.message }} (synced with ${{ inputs.action_name }})
+              
+              Original commit: https://github.com/${{github.repository}}/commit/${{ github.event.head_commit.id }}
+          use_rsync: 'true'
+          rsync_option: '-avrh --delete'

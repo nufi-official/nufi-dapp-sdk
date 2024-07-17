@@ -1,0 +1,20 @@
+name: sync-nufi-connect-docs
+run-name: Sync NuFi Connect docs
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'docs/sso/**'
+
+jobs:
+  copy_nufi_connect_docs:
+    name: Copy Cardano NuFi Connect Docs
+    uses: ./.github/workflows/copy_to_gitbook_repo.yml
+    with:
+      source_folder: 'docs/sso/'
+      destination_folder: 'nuficonnect-single-sign-on-sdk-for-cardano-dapps/integration/instructions'
+      action_name: 'sso docs'
+    secrets:
+      gitbook_repo_access_token: ${{ secrets.API_TOKEN_GITHUB }}

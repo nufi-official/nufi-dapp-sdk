@@ -1,0 +1,30 @@
+name: sync-common-docs
+run-name: Sync common docs
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'docs/common/**'
+
+jobs:
+  copy_cardano_snap_docs:
+    name: Copy Common Docs To Snap
+    uses: ./.github/workflows/copy_to_gitbook_repo.yml
+    with:
+      source_folder: 'docs/common/'
+      destination_folder: 'metamask-snap-cardano-wallet/integration/common'
+      action_name: 'Snap common docs'
+    secrets:
+      gitbook_repo_access_token: ${{ secrets.API_TOKEN_GITHUB }}
+
+  copy_cardano_sso_docs:
+    name: Copy Common Docs To SSO
+    uses: ./.github/workflows/copy_to_gitbook_repo.yml
+    with:
+      source_folder: 'docs/common/'
+      destination_folder: 'nuficonnect-single-sign-on-sdk-for-cardano-dapps/integration/common'
+      action_name: 'SSO common docs'
+    secrets:
+      gitbook_repo_access_token: ${{ secrets.API_TOKEN_GITHUB }}
