@@ -6,7 +6,9 @@ Please use the links below to navigate to the README
 section of your interests.
 
 ## Metamask snap
-* [Cardano wallet](./docs/cardanoSnap.md)
+
+- [Cardano wallet](./docs/snap/instructions.md)
 
 ## NuFiConnect
-* [Cardano](./docs/cardanoNuFiConnect.md)
+
+- [Cardano](./docs/sso/instructions.md)
