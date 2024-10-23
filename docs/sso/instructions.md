@@ -1,6 +1,6 @@
 # Integration instructions
 
-Integrates your DApp with the NuFi web wallet injected into it is as a widget. Users can seamlessly onboard/log in into your DApp using social providers such as Google or Discord while being able to manage their wallet in the NuFi interface.
+Integrates your DApp with the NuFi web wallet injected into it is as a widget. Users can seamlessly onboard/log in into your DApp using social providers such as Google, Facebook or Discord while being able to manage their wallet in the NuFi interface.
 
 ## Demo
 
@@ -81,7 +81,7 @@ initNufiDappCardanoSdk(nufiCoreSdk, 'sso', {provider: 'google'})
 const api = await window.cardano.nufiSSO.enable()
 ```
 
-You can currently choose `google` and `discord` providers.
+You can currently choose `google`, `facebook` and `discord` providers.
 
 The `initNufiDappCardanoSdk` will populate `window.cardano.nufiSSO` object which has methods corresponding to CIP-30 standard.
 
@@ -114,7 +114,7 @@ export type SocialLoginInfo = {
   email: string | null
   name: string | null
   profileImage: string | null
-  typeOfLogin: 'google' | 'discord'
+  typeOfLogin: 'google' | 'discord' | 'facebook'
 } & Record<string, unknown>
 ```
 
