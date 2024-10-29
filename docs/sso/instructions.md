@@ -228,9 +228,3 @@ If your Cardano DApp calls [getCollateral()](https://github.com/cardano-foundati
 To integrate the widget on mainnet, your DApp's domain needs need to be whitelisted. Please [contact us](../common/contact.md) and specify the domains to be whitelisted.
 
 Note that `localhost` with any port is supported by default.
-
-### On-off ramp service
-
-If you want a service user to be able to purchase crypto inside the widget using a fiat on-ramp (powered by Moonpay), your DApp's domain needs to be whitelisted. Please [contact us](../common/contact.md) and specify the domains to be whitelisted.
-
-Once whitelisted you will need to use [this extension](https://chromewebstore.google.com/detail/always-disable-content-se/ffelghdomoehpceihalcnbmnodohkibj) for local testing, or ensure that your dapp is locally accessible via `http://localhost` or `https://localhost` (i.e. no port number in the URL).
