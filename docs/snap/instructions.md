@@ -61,7 +61,7 @@ If no origin is passed to `init` it defaults to `https://wallet.nu.fi`. Note tha
 
 For now please use the origin from the above example.
 
-To customize Widget appearance (such as z-index), please see [Widget options](../common/widgetOptions.md)
+To customize Widget appearance (such as z-index, color mode, featured tokens, manual expand or collapse), please see [Widget options](../common/widgetOptions.md)
 
 ### Check whether user has Metamask installed
 
