@@ -22,6 +22,18 @@ The following folders trigger sync actions when they are changed:
 
 When adding new files, such as those in the common folder, you need to explicitly map the new content in the [nufi/SUMMARY.md](https://github.com/nufi-official/nufi/blob/main/SUMMARY.md) file to make them appear in the GitBook documentation.
 
+### Linking newly added files
+
+When linking newly added files using a relative path (e.g., `[my new file](../common/***.md)`), the link should point to the page in GitBook, not the GitHub repository, and it should work out of the box. However, there are cases where it may not function as expected. In such situations, action is required in the GitBook UI. If you don’t have access, reach out to someone who does. Otherwise, follow these steps:
+
+1. Log in to GitBook.
+2. Navigate to the link you need to fix.
+3. Select **Edit in Change Request**.
+4. Choose the correct page to link.
+5. Merge the changes.
+
+These changes will not affect the code in GitHub (no actual file modifications). Instead, they instruct GitBook to treat the link as an internal reference.
+
 ## Troubleshooting
 
 ### Failed Actions
