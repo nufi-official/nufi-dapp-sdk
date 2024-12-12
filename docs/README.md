@@ -18,6 +18,10 @@ The following folders trigger sync actions when they are changed:
 - **snap**: Contents are copied to `[snap]/integration/instructions`.
 - **common**: Contents are copied to both `[nuficonnect]/integration/common` and `[snap]/integration/common` to maintain relative paths and prepare for use as sub-pages on GitBook. Referencing a single file multiple times in GitBook is not supported (specifically for subpages, although we currently do not require subpages).
 
+## Adding new files
+
+When adding new files, such as those in the common folder, you need to explicitly map the new content in the [nufi/SUMMARY.md](https://github.com/nufi-official/nufi/blob/main/SUMMARY.md) file to make them appear in the GitBook documentation.
+
 ## Troubleshooting
 
 ### Failed Actions
